@@ -31,8 +31,16 @@
 
     // or create a new array and concat the old one in
 
+    const concatPlayers = [].concat(players)
+    concatPlayers[3] = "Tobi"
+    console.log(concatPlayers)
+
     // or use the new ES6 Spread
 
+    const spreadPlayers = [...players]
+    spreadPlayers[3] = "Tobi"
+    console.log(spreadPlayers)
+    console.log(players)
     // now when we update it, the original one isn't changed
 
     // The same thing goes for objects, let's say we have a person object
@@ -44,6 +52,15 @@
     };
 
     // and think we make a copy:
+    const parsePerson = JSON.parse(JSON.stringify(person))
+    console.log(parsePerson)
+    const spreadPerson = {...person}
+    console.log(spreadPerson)
+
+    person.age = 21
+    spreadPerson.age = 25
+
+    console.log(`Person is ${person.age} years old, while spread person is ${spreadPerson.age} years old`)
 
     // how do we take a copy instead?
 
